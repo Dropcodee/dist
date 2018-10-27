@@ -285,7 +285,7 @@ $(function() {
             $(".signup-loading").hide();
             $("input").attr("disabled", false);
             $(".show_err").html("");
-            window.location = "index.html";
+            window.location = "hyveAdmin.php";
           }
         },
         error: function() {
