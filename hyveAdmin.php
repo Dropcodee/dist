@@ -29,7 +29,7 @@
             <div class="divider"></div>
         </li>
         <li><a href="#allusers"><i class="material-icons">people</i>Members</a></li>
-        <li><a class="waves-effect" href="#!">
+        <li><a class="waves-effect" href="index.php">
                 <i class="material-icons">lock_outline</i>Logout</a></li>
     </ul>
 
