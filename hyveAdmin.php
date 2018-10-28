@@ -3,6 +3,7 @@
 ?>
 
 <body>
+    <div class="animsition">
     <!-- Navbar goes here -->
     <div class="navbar-fixed">
         <nav class="white">
@@ -29,6 +30,12 @@
             <div class="divider"></div>
         </li>
         <li><a href="#allusers"><i class="material-icons">people</i>Members</a></li>
+        <li><a href="#youratt"><i class="material-icons">people</i>Your Attendance</a></li>
+        <li><a href="#message"><i class="material-icons">cloud</i>Send Messages</a></li>
+        <li><a href="#changepass"><i class="material-icons">lock</i>Change Password</a></li>
+        <li>
+            <div class="divider"></div>
+        </li>
         <li><a class="waves-effect" href="index.php">
                 <i class="material-icons">lock_outline</i>Logout</a></li>
     </ul>
@@ -40,7 +47,7 @@
                 <h4>Edit Your Profile.</h4>
                 <hr class="custom__divider" />
             </header>
-            <div class="card card__form animated fadeInUp delay-1s">
+            <div class="card card__form animated">
                 <div class="top__section green">
                     <div class="facebook">
                         <a class="fa fa-facebook" to="#"></a>
@@ -158,7 +165,7 @@
                     <h3>Member Attendance.</h3>
                     <hr class="custom__divider">
                 </header>
-                <table class="highlight">
+                <table class="highlight responsive-table">
                     <thead>
                         <tr>
                             <th>Name</th>
@@ -202,58 +209,179 @@
                     <h3>ALL UNIT MEMBERS.</h3>
                     <hr class="custom__divider">
                 </header>
-                <table class="highlight">
+                <table class="highlight responsive-table">
                     <thead>
                         <tr>
+                            <th>S/N</th>
                             <th>Name</th>
                             <th>Registration Number</th>
                             <th>Webmail</th>
                             <th>Date Of Birth</th>
                             <th>Hall Of Residence</th>
                             <th>Room No</th>
+                            <th>Membership</th>
+                            <th>Joined</th>
                         </tr>
                     </thead>
 
-                    <tbody>
-                        <tr>
-                            <td>Abraham Ugbeshe</td>
-                            <td>1700172</td>
-                            <td>ugbeshe.abraham@lmu.edu.ng</td>
-                            <td>09-24-1999</td>
-                            <td>Abraham Hall</td>
-                            <td>F302</td>
-
-                        </tr>
-                        <tr>
-                            <td>Owolabi Jousha</td>
-                            <td>1600172</td>
-                            <td>owolabi.oluwasegun@lmu.edu.ng</td>
-                            <td>09-24-1999</td>
-                            <td>Abraham Hall</td>
-                            <td>B305</td>
-
-                        </tr>
-                        <tr>
-                            <td>Simon Joseph</td>
-                            <td>1500335</td>
-                            <td>joseph.simon@lmu.edu.ng</td>
-                            <td>09-24-1999</td>
-                            <td>Abraham Hall</td>
-                            <td>E302</td>
-
-                        </tr>
-                    </tbody>
+                    <tbody id="show"></tbody>
                 </table>
             </div>
         </div>
     </div>
     <!-- ALL UNIT MEMBERS -->
+
+    <!-- PERSONAL ATTENDANCE-->
+<div class="personal__info">
+        <div class="col s12 m12 l12">
+            <div class="container">
+                <header id="allusers" class="center-align section scrollspy">
+                    <h3>Attendance Details.</h3>
+                    <hr class="custom__divider">
+                </header>
+        <h5 class="header">Attendance & Personal Info.</h5>
+        <div class="card horizontal">
+        <div class="card-image">
+            <img src="avatar.svg">
+        </div>
+        <div class="card-stacked">
+            <div class="card-content">
+            <div class="header col s12 m12 l12 center-align section scrollspy" id="youratt">
+            <p>PERSONAL INFORMATION</p>
+            <hr class="custom__divider">
+            </div>
+            <div class="container">
+                <div class="divider"></div>
+            </div>
+            <div class="row">
+                <div class="col m6 l6 s12">
+                    <h6>Surname Name: </h6>
+                    <p>Doe</p>
+                </div>
+                <div class="col m6 l6 s12">
+                    <h6>Other Names: </h6>
+                    <p> John</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col m6 l6 s12">
+                    <h6>Matric Number: </h6>
+                    <p>15CD006847</p>
+                </div>
+                <div class="col m6 l6 s12">
+                    <h6>Regisration Number: </h6>
+                    <p>1500127</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col m6 l6 s12">
+                    <h6>Hall: </h6>
+                    <p>Abraham Hall</p>
+                </div>
+                <div class="col m6 l6 s12">
+                    <h6>Room Number: </h6>
+                    <p>E307</p>
+                </div>
+            </div>
+            </div>
+        </div>
+        </div>
+  </div>
+</div>
+</div>
+    <!-- PERSONAL ATTENDANCE-->
+
+    <!-- SEND MESSAGES TO USERS HERE-->
+    <div class="send__message">
+        <div class="col s12 m12 l12">
+            <div class="container">
+                <header id="message" class="center-align section scrollspy">
+                    <h3>Send Messages.</h3>
+                    <hr class="custom__divider">
+                </header>
+                <div class="card card__form">
+                     <div class="top__section green">
+                    <div class="facebook">
+                        <a class="fa fa-facebook" to="#"></a>
+                    </div>
+                </div>
+                    <div class="card-content">
+                <div class="form__wrapper">
+                    <form action=""> 
+                    <div class="input-field">
+                        <textarea id="textarea2" class="materialize-textarea" data-length="250"></textarea>
+                        <label for="textarea2">Send Message</label>
+                        <span class="helper-text">Send messages or announcements to all members here.  maximum(250 words)</span>
+                    </div>
+                     <button class="btn-large waves-effect waves-light green" id="login">
+                           Post
+                        </button>
+                    </div>
+                    </form>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- SEND MESSAGES TO USERS HERE-->
+
+    <!-- CHANGE PASSWORD HERE-->
+    <div class="col s12 m12 l12">
+        <div class="container">
+             <header id="changepass" class="center-align section scrollspy">
+                    <h3>Change Password.</h3>
+                    <hr class="custom__divider">
+                </header>
+            <div class="card card__form section scrollspy" id="changepass">
+                <div class="top__section green">
+                    <div class="facebook">
+                        <a class="fa fa-facebook" to="#"></a>
+                    </div>
+                </div>
+                <div class="avatar">
+                    <img src="avatar.svg" alt="user avatar" class="circle responsive-img" />
+                </div>
+                <div class="card-content">
+                    <form action="POST">
+                        <div class="input-field inputVal disabled">
+                            <i class="material-icons prefix">lock_open</i>
+                            <label for="old_pass" class="">Enter Old Password:</label>
+                            <input name="
+                                RegNo" type="password" id="old_pass" class="validate"/>
+                            <span class="passold_err helper-text "> Enter Old password here.</span>
+                        </div>
+
+                        <div class="input-field inputVal2">
+                            <i class="material-icons prefix"> lock_outline</i>
+                            <label for="new_pass" class="">
+                                New Password:
+                            </label>
+                            <input name="password" type="password" id="new_pass" class="validate" />
+                            <span class="helper-text pass_err"></span>
+                        </div>
+                        <div class="input-field inputVal2">
+                            <i class="material-icons prefix"> lock</i>
+                            <label for="confirm_pass" class="">
+                                Confirm Password:
+                            </label>
+                            <input name="password" type="password" id="confirm_pass" class="validate" />
+                            <span class="helper-text confirm_err"></span>
+                        </div>
+                        <button class="btn waves-effect waves-light green" id="change_password">
+                            Change Password
+                        </button>
+                        <span class="signup-loading"></span>
+                    </form>
+                </div>
+            </div>
+        </div>
+    <!-- CHANGE PASSWORD HERE-->
     <!-- Footer-->
     <?php
     include "footer.php";
     ?>
     <!-- Footer-->
-    </div>
+</div>
     <?php
     include "scripts.php";
     ?>

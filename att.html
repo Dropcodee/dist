@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Attendance - Sanctuary Unit</title>
+</head>
+
+<body>
+    <input type="text" placeholder="Enter Reg Number" id="reg-no" maxlength="7">
+    <input type="button" value="Add" id="add">
+    <script src="jquery.js"></script>
+    <script>
+        $(() => {
+            $("#add").click((e) => {
+                e.preventDefault();
+                var reg_no = $("#reg-no").val();
+                var point = 0;
+                var estimated = 500;
+                if (reg_no !== "") {
+                    if (reg_no.length === 7) {
+                        $.post("http://localhost:8080/projects/sanc-server/public/attendance", { reg_no: reg_no }, function (response) {
+                            var att = jQuery.parseJSON(response);
+                            if (att.error) {
+                                console.log(att.error.err_text)
+                            } else {
+                                $.get(`http://localhost:8080/projects/sanc-server/public/attendance/${reg_no}`, function (response) {
+                                    var att = jQuery.parseJSON(response);
+                                    var point = att[0].attendance;
+                                    if (point <= 500) {
+                                        var cal = point / estimated;
+                                        var total = cal * 100;
+                                        console.log(`${att[0].name} attendance percentage is ${total}%`)
+                                    } else {
+                                        console.log("You have reached the max.")
+                                    }
+                                })
+                            }
+                        })
+                    } else {
+                        console.log("Enter a valid reg no.")
+                    }
+                } else {
+                    console.log("Reg number required")
+                }
+            })
+        })
+    </script>
+</body>
+
+</html>

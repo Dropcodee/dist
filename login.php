@@ -7,12 +7,12 @@
 <div class="animsition">
     <nav>
         <div class="nav-wrapper white">
-            <a href="./index.php" class="brand-logo center black-text">
-                Sanctuary Unit
-            </a>
+           <a href="./index.php" class="brand-logo center black-text animsition-link">
+                        <img src="Sanctuary.png" alt="sanctuary logo" class="logo__size">
+                    </a>
             <ul class="right">
                 <li>
-                    <a href="./Signup.php" class="waves-effect waves-light btn green">
+                    <a href="./Signup.php" class="waves-effect waves-light btn green animsition-link">
                         Signup
                     </a>
                 </li>

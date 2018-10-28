@@ -118,7 +118,7 @@ $(() => {
       $(".signup-loading").show();
       $.ajax({
         method: "POST",
-        url: "https://sanc-server.herokuapp.com/public/add",
+        url: "http://localhost:8080/projects/sanc-server/public/add",
         data: {
           name: fullname,
           reg_no: RegNo,
@@ -134,7 +134,7 @@ $(() => {
             console.log(data_signup.error);
             M.toast({
               html: data_signup.error.err_text,
-              classes: "toast__failed rounded"
+              classes: "toast__failed"
             });
             $("#submit")
               .html("Sign Up")
@@ -145,7 +145,7 @@ $(() => {
             console.log(data_signup.success);
             M.toast({
               html: data_signup.success.success_text,
-              classes: "toast__sending rounded"
+              classes: "toast__sending"
             });
             $(".signup-loading").hide();
             $("input").attr("disabled", false);
@@ -156,7 +156,7 @@ $(() => {
         error: function() {
           M.toast({
             html: "Sorry Sanctuary Unit couldn't connect to the server",
-            classes: "toast__success rounded"
+            classes: "toast__success"
           });
 
           $("#submit")
@@ -260,7 +260,7 @@ $(function() {
       $(".signup-loading").show();
       $.ajax({
         method: "POST",
-        url: "https://sanc-server.herokuapp.com/public/login",
+        url: "http://localhost:8080/projects/sanc-server/public/login",
         data: { reg_no: reg_no, password: password },
         cache: false,
         success: function(data) {
@@ -269,29 +269,37 @@ $(function() {
             console.log(data_login.error);
             M.toast({
               html: data_login.error.err_text,
-              classes: "toast__failed rounded"
+              classes: "toast__failed"
             });
             $("#login")
               .html("Login")
               .removeClass("disabled");
             $(".signup-loading").hide();
             $("input").attr("disabled", false);
-          } else {
-            console.log(data_login.success);
+          } else if (reg_no === "1600172" && password === "sanc1attendance") {
             M.toast({
               html: data_login.success.success_text,
-              classes: "toast__sending rounded"
+              classes: "toast__sending"
             });
             $(".signup-loading").hide();
             $("input").attr("disabled", false);
             $(".show_err").html("");
-            window.location = "hyveAdmin.php";
+            window.location = "sancAtt.php";
+          } else {
+            M.toast({
+              html: data_login.success.success_text,
+              classes: "toast__sending"
+            });
+            $(".signup-loading").hide();
+            $("input").attr("disabled", false);
+            $(".show_err").html("");
+            window.location = "useradmin.php";
           }
         },
         error: function() {
           M.toast({
             html: "Sorry Sanctuary Unit couldn't connect to the server",
-            classes: "toast__success rounded"
+            classes: "toast__success"
           });
 
           $("#login")
